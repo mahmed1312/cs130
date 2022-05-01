@@ -1,0 +1,22 @@
+/* You're welcome to change any of this! */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 90px;
+    font-family: 'Franklin Gothic Medium';
+    background-color: #ffee00;
+}
+header, section {
+    padding: 20px;
+}
+p, li {
+    line-height: 20em;
+}
+
+#inspiration {
+    background-color: #ecdd0b;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
