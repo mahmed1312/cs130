@@ -1,5 +1,10 @@
 html, body {
-    margin: 0;
+
+    transition: all 3s ease-in-out; 
+    background-image:url(2iiH.gif);
+    max-height: 100vh;
+    background-color: black;
+    cursor:url('cursor.png');
   }
   
   /*
@@ -50,9 +55,37 @@ html, body {
     position: relative;
     font-size: 3em;
     margin: 0;
+   
+  }
+
+  .resize{
+    
+    padding: 10px;
+    background-color: aliceblue;
+    transition: all 2s ease-in-out; 
+
+  }
+
+
+
+   
+   .resize:hover {
+   
+   transform: scale(1.1); 
+
+  }
+
+  
+  .des {
+    font-size: 1.5em;
+    margin: 1em;
+    cursor: pointer;
+    user-select: none;
   }
   
-  .slide-toggle-container {
+  .pee{
+    scale:(0.5);
+    padding:10px;
     position: absolute;
     width: 25%;
     height: 100%;
@@ -61,17 +94,47 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 1.3em;
+   background-color: aliceblue;
+   opacity: 75%;
+   min-height: 60vh;
+    transition: all .2s ease-in-out; 
+    background-image: linear-gradient(white, black);
+   mix-blend-mode: difference;
+   transition: all 2s ease-in-out; 
+
+
+  }
+
+  .pee:hover{
+   
+    border-radius: 25%;
+    opacity:100%;
+    background-image: linear-gradient(white, rgb(255, 255, 255));
+    transform: scale(1.1) translateY(-19px);
+
+
   }
   
-  .slide-toggle {
-    font-size: 1.5em;
-    margin: 1em;
-    cursor: pointer;
-    user-select: none;
+  
+  strong {
+
+    color:white;
   }
   
-  
-  
-  
-  
-  
+  nav a {
+    text-decoration: none;
+  }
+  nav a:hover{
+
+    background-color: white;
+  }
+
+  audio {
+
+    opacity: 25%;
+    color:black;
+    padding-top: 10px;
+
+
+  }

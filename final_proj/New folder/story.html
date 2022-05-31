@@ -1,5 +1,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
+<audio controls autoplay id="audio">
+  <source src="calm.mp4" type="audio/mpeg">
+</audio>
+
+
   <link rel='stylesheet' href='story.css'>
   <link rel='stylesheet' href='../style.css'>
  
@@ -15,20 +20,29 @@
   <div class="container">
     <div class="slide-container">
        <div class="slide" pos="1">
-    <img class="resize" src="../1.PNG"/>
+    <img class="resize" src="../4.PNG"/>
+    
+    <p class="pee"> What a wonderful day lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo consequuntur eligendi ducimus, reprehenderit voluptas dolor quis eos accusamus doloribus qui eius libero rem sit voluptatem hic totam consectetur laboriosam velit.</p>
       </div>
       <div class="slide" pos="2" style="opacity:0">
      
-         <img class="resize" src="../2.PNG"/>
+         <img class="resize" src="../5.PNG"/>
+         <p class="pee"> My organs are dispersing...ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo consequuntur eligendi ducimus, reprehenderit voluptas dolor quis eos accusamus doloribus qui eius libero rem sit voluptatem hic totam consectetur laboriosam velit.</p>
       </div>
       <div class="slide" pos="3" style="opacity:0">
 
-         <img class="resize" src="../3.PNG"/>
+         <img class="resize" src="../1.PNG"/>
+         <p class="pee">My head hurts.. squitwadp  out lorem ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo consequuntur eligendi ducimus, reprehenderit voluptas dolor quis eos accusamus doloribus qui eius libero rem sit voluptatem hic totam consectetur laboriosam velit.</p>
       </div>
-    </div>
-    <div class="slide-toggle-container">
-      <p class="slide-toggle" direction="prev">Previous</p>
-      <p class="slide-toggle" direction="next">Next</p>
+      <div class="slide" pos="4" style="opacity:0">
+     
+        <img class="resize" src="../3.PNG"/>
+        <p class="pee">Who am I and where am I... ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo consequuntur eligendi ducimus, reprehenderit voluptas dolor quis eos accusamus doloribus qui eius libero rem sit voluptatem hic totam consectetur laboriosam velit.</p>
+     </div>
+     <div class="slide" pos="5" style="opacity:0">
+      <img class="resize" src="../2.PNG"/>
+      <p class="pee">I know what I am  ipsum dolor sit amet Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo consequuntur eligendi ducimus, reprehenderit voluptas dolor quis eos accusamus doloribus qui eius libero rem sit voluptatem hic totam consectetur laboriosam velit.</p>
+   </div>
     </div>
   </div>
 
@@ -52,11 +66,14 @@
     
     $(document).ready(function() {
       
+
+      console.log("penis mode activate");
+      
         // slide to start. should always be 1 as it's also the lower bound to the number of slides. corresponds to [pos] attribute on html element
         let active_slide = 1;
         
         // last slide. should be the upper bound to the number of slides. corresponds to [pos] attribute on html element
-        let slide_count = 3;
+        let slide_count = 5;
         
         // speed of animations (ms)
         let speed = 250;
@@ -67,8 +84,9 @@
           $(this).hide();
         })
         
-        
-        $(".slide-toggle[direction='next']").click(function() {
+
+
+        $(".slide").click(function() {
           
           // non active slides moved down so they can slide up when activated
           $(".slide[pos!='" + active_slide + "']").each(function() {
@@ -78,6 +96,7 @@
           
           let next_slide = active_slide + 1;
           
+          let fart =true;
           
           if (next_slide <= slide_count) {
             
@@ -85,16 +104,23 @@
             Note: delay only works if .hide() or .show() are in its internal queue. Therefore you need to pass an argument to it, even if it's 0. (praise be to stackoverflow)
             */
             
-            $(".slide[pos='" + active_slide + "']").animate({opacity:0, top: "-10px"}, {duration: speed}).hide(0).animate({top: "10px"});
+            $(".slide[pos='" + active_slide + "']").animate({opacity:0.5, top: "0px"}, {duration: speed}).hide(0).animate({top: "0px"});
             
             $(".slide[pos='" + next_slide + "']").delay(speed).show(0).animate({opacity:1, top: "0px"}, {duration: speed});
             
+
+
       
-          } else {
+      
+          } 
+       
+          
+          
+          else {
             
             next_slide = 1;
               
-            $(".slide[pos='" + active_slide + "']").animate({opacity:0, top: "-10px"}, {duration: speed}).hide(0).animate({top: "10px"});
+            $(".slide[pos='" + active_slide + "']").animate({opacity:0.5, top: "-10px"}, {duration: speed}).hide(0).animate({top: "10px"});
             
             $(".slide[pos='" + next_slide + "']").delay(speed).show(0).animate({opacity: 1, top: "0px"});
             
@@ -103,40 +129,26 @@
           // once animations are done, set new active slide
           active_slide = next_slide;
           
-        })
+       })
         
         
-        $(".slide-toggle[direction='prev']").click(function() {
           
-          // non active slides moved up so they can slide down when activated
-          $(".slide[pos!='" + active_slide + "']").each(function() {
-            $(this).css("top", "-10px");
-          })
-          
-          
-          let next_slide = active_slide - 1;
-          
-          
-          if (next_slide < 1) {
-            
-            next_slide = slide_count;
-            
-            $(".slide[pos='" + active_slide + "']").animate({opacity:0, top: "10px"}, {duration: speed}).hide(0).animate({top: "10px"});
-            
-            $(".slide[pos='" + next_slide + "']").delay(speed).show(0).animate({opacity:1, top: "0px"}, {duration: speed});
-            
-          } else {
-            
-            $(".slide[pos='" + active_slide + "']").animate({opacity:0, top: "10px"}, {duration: speed}).hide(0).animate({top: "10px"});
-            
-            $(".slide[pos='" + next_slide + "']").delay(speed).show(0).animate({opacity: 1, top: "0px"});
-            
-          }
-          
-          // once animations are done, set new active slide
-          active_slide = next_slide;
-          
-        })
+
         
         
-      })</script>
+      })
+      
+
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      </script>
