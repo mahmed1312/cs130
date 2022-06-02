@@ -124,11 +124,9 @@ html, body {
   
   nav a {
     text-decoration: none;
+    color: white;
   }
-  nav a:hover{
-
-    background-color: white;
-  }
+  
 
   audio {
 
